@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class Upload extends Component {
+  uploadWidget = () => {
+    window.cloudinary.openUploadWidget(
+      {
+        cloud_name: "dzcwvrakl", // ypur cloudinary name
+        upload_preset: "tutorial", //upload preset name
+        sources: ["local", "url", "facebook", "image_search"], //file source
+      },
+      function (error, result) {
+        console.log("This is the result of the last upload", result);
+      }
+    );
+  };
+
+  render() {
+    return (
+      <div>
+        <h3>Upload sample video </h3>
+
+        <div className="col-sm-12">
+          <div className="jumbotron text-center">
+            <button className="btn btn-lg btn-info" onClick={this.uploadWidget}>
+              {" "}
+              Upload Video
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default Upload;
