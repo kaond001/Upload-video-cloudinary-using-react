@@ -4,7 +4,7 @@ class Upload extends Component {
   uploadWidget = () => {
     window.cloudinary.openUploadWidget(
       {
-        cloud_name: "dzcwvrakl", // ypur cloudinary name
+        cloud_name: "edfzcwvraklf", // ypur cloudinary name
         upload_preset: "tutorial", //upload preset name
         sources: ["local", "url", "facebook", "image_search"], //file source
       },
